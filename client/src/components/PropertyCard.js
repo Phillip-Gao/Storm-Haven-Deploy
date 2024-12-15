@@ -13,7 +13,7 @@ export default function PropertyCard({ propertyId, handleClose }) {
   useEffect(() => {
     if (propertyId) {
       // Fetch property details
-      fetch(`http://${config.server_host}:${config.server_port}/search_properties?property_id=${propertyId}`)
+      fetch(`https://stormhaven.onrender.com/search_properties?property_id=${propertyId}`)
         .then(res => res.json())
         .then(data => {
           if (data && data.length > 0) {
@@ -23,7 +23,7 @@ export default function PropertyCard({ propertyId, handleClose }) {
         .catch(err => console.error('Error fetching property data:', err));
 
       // Fetch disasters associated with the property
-      fetch(`http://${config.server_host}:${config.server_port}/get_disasters_for_property?property_id=${propertyId}`)
+      fetch(`https://stormhaven.onrender.com/get_disasters_for_property?property_id=${propertyId}`)
         .then(res => res.json())
         .then(resJson => {
           const disastersWithId = resJson.map(disaster => ({ id: disaster.disaster_id, ...disaster }));
