@@ -25,7 +25,7 @@ export default function FindHouses() {
   
   // Fetch initial properties data
   useEffect(() => {
-    fetch(`http://${config.server_host}:${config.server_port}/search_properties`)
+    fetch(`https://stormhaven.onrender.com/search_properties`)
       .then(res => res.json())
       .then(resJson => {
         const propertiesWithId = resJson.map(property => ({ 
@@ -51,7 +51,7 @@ export default function FindHouses() {
 
   // Search properties based on filters
   const search = () => {
-    const query = `http://${config.server_host}:${config.server_port}/search_properties?` +
+    const query = `https://stormhaven.onrender.com/search_properties?` +
       `property_id=${propertyId}&county_name=${countyName}&state=${state}&status=${status}` +
       `&price_low=${price[0]}&price_high=${price[1]}` +
       `&bathrooms_low=${bathrooms[0]}&bathrooms_high=${bathrooms[1]}` +

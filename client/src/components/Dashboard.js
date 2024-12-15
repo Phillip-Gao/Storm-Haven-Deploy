@@ -60,7 +60,7 @@ export default function Dashboard(props) {
                 ? "/recently-unimpacted-high-risk-areas"
                 : "/most-affected-properties";
 
-        fetch(`http://${config.server_host}:${config.server_port}${endpoint}`)
+        fetch(`https://stormhaven.onrender.com${endpoint}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
@@ -117,7 +117,7 @@ export default function Dashboard(props) {
 				return;
 		}
 	
-		fetch(`http://${config.server_host}:${config.server_port}${endpoint}`)
+		fetch(`https://stormhaven.onrender.com${endpoint}`)
             .then(response => response.json())
             .then(data => {
 				if (index === 0) {

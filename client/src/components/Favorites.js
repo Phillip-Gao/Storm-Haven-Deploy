@@ -52,7 +52,7 @@ export default function Favorites() {
   useEffect(() => {
     const fetchFavorites = async () => {
       const promises = favorites.map(fav =>
-        fetch(`http://${config.server_host}:${config.server_port}/search_properties?property_id=${fav.id}`)
+        fetch(`https://stormhaven.onrender.com/search_properties?property_id=${fav.id}`)
           .then(res => res.json())
       );
       const results = await Promise.all(promises);

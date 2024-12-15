@@ -30,13 +30,13 @@ export default function DisasterRisks() {
 
   // Fetch disaster data and trends on initial render
   useEffect(() => {
-    fetch(`http://${config.server_host}:${config.server_port}/search_disasters`)
+    fetch(`https://stormhaven.onrender.com/search_disasters`)
 		.then(res => res.json())
 		.then(resJson => {
 		  const disastersWithId = resJson.map(disaster => ({ id: disaster.disaster_id, ...disaster }));
 		  setData(disastersWithId);
 		});
-    fetch(`http://${config.server_host}:${config.server_port}/disaster-trends`)
+    fetch(`https://stormhaven.onrender.com/disaster-trends`)
       .then(res => res.json())
       .then(resJson => {
         const trendsWithId = resJson.map(trend => ({ id: trend.index, ...trend }));
@@ -46,7 +46,7 @@ export default function DisasterRisks() {
 
   // Constructs and executes a search query based on filters
   const search = () => {
-    const query = `http://${config.server_host}:${config.server_port}/search_disasters?` +
+    const query = `https://stormhaven.onrender.com/search_disasters?` +
       `disaster_id=${disasterId}&disasternumber=${disasterNumber}&county_name=${countyName}` +
       `&designateddate_low=${exportDate(designatedDateLow, false)}&designateddate_high=${exportDate(designatedDateHigh, true)}&type_code=${typeCode}`;
 	  fetch(query)
